@@ -33,16 +33,37 @@ Google_Places_API_Scraper/
 
 ## Setup
 
-1. Install dependencies:
+1. Create and activate a virtual environment:
+   ```bash
+   # Create virtual environment
+   python -m venv venv
+   
+   # Activate on Linux/macOS
+   source venv/bin/activate
+   
+   # Activate on Windows
+   venv\Scripts\activate
+   ```
+
+2. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
-2. Set up Google Cloud API key:
+3. Set up Google Cloud API key:
    - Create a project in Google Cloud Console
    - Enable the Places API
    - Create an API key with Places API restriction
-   - Copy `.env.example` to `.env` and add your API key
+   - Copy `.env.example` to `.env` and add your API key:
+     ```bash
+     cp .env.example .env
+     # Edit .env with your API key
+     ```
+
+4. Verify the environment setup:
+   ```bash
+   python test_env.py
+   ```
 
 ## Usage
 
