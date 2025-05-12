@@ -47,4 +47,17 @@ coverage.xml
 
 # Logs
 logs/
-*.log 
+*.log
+
+# Linux/WSL specific
+*~
+.Trash-*
+.nfs*
+.fuse_hidden*
+*.tmp
+core
+.directory
+.wslconfig
+.bash_history
+.lesshst
+.wget-hsts 
