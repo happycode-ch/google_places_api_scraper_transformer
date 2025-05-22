@@ -1,6 +1,6 @@
 # Google Places API Scraper
 
-A CLI-based Python scraper using the Google Places API to collect structured data about farm shops in Canton Aargau, Switzerland. The project includes a minimal Streamlit frontend for data visualization.
+A CLI-based Python scraper using the Google Places API to collect structured data about farm shops in Canton Aargau, Switzerland. The project includes a minimal Streamlit frontend for data visualization and ETL capabilities for data transformation.
 
 ## Features
 
@@ -10,6 +10,8 @@ A CLI-based Python scraper using the Google Places API to collect structured dat
 - Filter results to only include places in Canton Aargau
 - Export data to JSON and CSV formats
 - Clean and normalize data to a structured schema
+- ETL pipeline for transforming data into standardized formats
+- API verification tools to check access and permissions
 - Visualize data through a Streamlit frontend with filtering options
 - Display shops on an interactive map
 
@@ -23,8 +25,11 @@ Google_Places_API_Scraper/
 ├── geo_utils.py         # Geographic utilities
 ├── export.py            # JSON and CSV export
 ├── streamlit_app.py     # Streamlit frontend
+├── check_api_details.py # API verification tool
+├── etl_farmshops.py     # ETL pipeline
 ├── requirements.txt     # Project dependencies
 ├── .env.example         # Example environment variables
+├── README_etl.md        # ETL documentation
 ├── data/                # Output directory
     ├── aargau_raw.json  # Raw data output
     ├── aargau_raw.csv   # CSV export
@@ -81,6 +86,12 @@ python main.py search --clean
 
 # Custom output paths
 python main.py search --output-json "custom/path/results.json" --output-csv "custom/path/results.csv"
+
+# Run ETL process
+python main.py etl --input-dir data --output-dir processed --canton-folders --flask-compatible
+
+# Verify API access
+python check_api_details.py
 ```
 
 ### Streamlit Frontend
@@ -125,6 +136,26 @@ Cleaned data follows this schema:
   "google_maps_url": "https://maps.google.com/?q=Hofladen+..."
 }
 ```
+
+## ETL Pipeline
+
+The ETL pipeline (`main.py etl`) provides:
+- Data transformation from Google Places API format to standardized schema
+- Support for multiple cantons with separate output folders
+- Flask-compatible output format with metadata
+- Schema validation and data cleaning
+- Automatic handling of missing or invalid data
+- Version control for output files
+
+See `README_etl.md` for detailed ETL documentation.
+
+## API Verification
+
+The `check_api_details.py` script helps verify:
+- API key validity
+- Access to different Google APIs
+- Specific permissions and quotas
+- API response status and errors
 
 ## Notes
 
