@@ -18,7 +18,6 @@ build/
 # Environment variables
 .env
 .env.*
-!.env.example
 
 # Data files (but keep the directory)
 data/*
